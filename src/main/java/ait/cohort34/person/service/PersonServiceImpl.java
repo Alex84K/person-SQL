@@ -1,9 +1,7 @@
 package ait.cohort34.person.service;
 
 import ait.cohort34.person.dao.PersonRepository;
-import ait.cohort34.person.dto.AddressDto;
-import ait.cohort34.person.dto.CityPopulationDto;
-import ait.cohort34.person.dto.PersonDto;
+import ait.cohort34.person.dto.*;
 import ait.cohort34.person.dto.exeptions.PersonNotFoundException;
 import ait.cohort34.person.model.Address;
 import ait.cohort34.person.model.Child;
@@ -95,6 +93,17 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
     @Override
     public Iterable<CityPopulationDto> getCitiesPopulation() {
         return personRepository.getCitiesPopulation();
+    }
+
+    @Override
+    public ChildrenDto[] findChildrens() {
+        //return personRepository.findChildren().getClass().getDeclaredField();
+        return null;
+    }
+
+    @Override
+    public EmployeeDto[] findEmployees(int min, int max) {
+        return new EmployeeDto[0];
     }
 
     @Transactional

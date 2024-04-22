@@ -1,6 +1,7 @@
 package ait.cohort34.person.controller;
 
 import ait.cohort34.person.dto.AddressDto;
+import ait.cohort34.person.dto.ChildrenDto;
 import ait.cohort34.person.dto.CityPopulationDto;
 import ait.cohort34.person.dto.PersonDto;
 import ait.cohort34.person.service.PersonService;
@@ -57,4 +58,5 @@ public class PersonController {
     public Iterable<CityPopulationDto> getCitiesPopulation() {
         return personService.getCitiesPopulation();
     }
+
 }

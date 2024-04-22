@@ -11,7 +11,8 @@ import java.time.LocalDate;
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "persons")
-@Inheritance(strategy = InheritanceType.JOINED) // cоздаст несколько таблиц связанных по ключу
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.JOINED) // cоздаст несколько таблиц связанных по ключу
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
     @Id
