@@ -1,18 +1,18 @@
 package ait.cohort34.person.model;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "id")
 @Entity
+@Table(name = "persons")
+@Inheritance(strategy = InheritanceType.JOINED) // cоздаст несколько таблиц связанных по ключу
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
     @Id
     Integer id;
@@ -20,12 +20,6 @@ public class Person {
     String name;
     LocalDate birthDate;
     @Setter
-    @Embedded // страиваем одну табл в др
+//    @Embedded
     Address address;
-
-    public static int calculateAge(LocalDate dateOfBirth) {
-        LocalDate currentDate = LocalDate.now();
-        Period period = Period.between(dateOfBirth, currentDate);
-        return period.getYears();
-    }
 }
